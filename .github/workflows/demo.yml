@@ -9,8 +9,10 @@ on:
       - main
       - 'feature/**' #test skip Ci
 jobs:
-  first-workflow:
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      community: ${{steps.publish.outputs.mycommunity}]
     steps:
       - name: download code
         uses: actions/checkout@v3
@@ -18,3 +20,16 @@ jobs:
         run: npm install
       - name: run tests
         run : npm run test
+      - name: publish variable name
+        id: publish
+        run: echo 'mycommunity=Hunter Creek' >> $GITHUB_OUTPUT
+        
+  deploy:
+    needs: build
+    runs-on: ubunto-latest
+    steps:
+      - name : GET build artifacts
+        run: echo "Deploying"
+      - name: Publish variable name
+        run: echo "${{ needs.build.outputs.community}}"
+  

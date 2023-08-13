@@ -1,0 +1,12 @@
+name: demo workflow
+on: push
+jobs:
+  first-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: ehco "hi"
+      - name: multi line
+        run: |
+          echo "multi line "
+          echo "simple print"

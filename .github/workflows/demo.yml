@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print
-        run: ehco "hi"
+        run: echo "hi"
       - name: multi line
         run: |
           echo "multi line "

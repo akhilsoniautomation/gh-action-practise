@@ -23,7 +23,7 @@ jobs:
           echo ${{ env.job-env-var }}
           echo $GITHUB_JOB
           echo $GITHUB_REPOSITORY_OWNER
-          cho ${{ env.my_aim }}
+          echo ${{ env.my_aim }}
         
   # deploy:
   #   needs: build

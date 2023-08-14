@@ -9,6 +9,8 @@ env:
   testenv: 'STAGE'
 jobs:
   build:
+    env:
+      job-env-var: 'JOB ENV VARIABLE'
     runs-on: ubuntu-latest
     outputs:
       community: ${{steps.publish.outputs.mycommunity}}
@@ -21,7 +23,9 @@ jobs:
         run : npm run test
       - name: publish env name
         id: publish
-        run: echo ${{ env.testenv }}
+        run: |
+          echo ${{ env.testenv }}
+          echo ${{ job-env-var }}
         
   # deploy:
   #   needs: build

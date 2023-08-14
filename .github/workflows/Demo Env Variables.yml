@@ -9,7 +9,7 @@ env:
   testenv: 'STAGE'
 jobs:
   build:
-   environment: Stage
+    environment: Stage
     env:
       job-env-var: "JOB ENV VARIABLE"
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
           echo ${{ env.my_aim }}
         
   deploy:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     steps:
       - name : GET build artifacts

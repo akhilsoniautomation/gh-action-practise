@@ -9,7 +9,7 @@ env:
   testenv: 'STAGE'
 jobs:
   build:
-  #  environment: Stage
+   environment: Stage
     env:
       job-env-var: "JOB ENV VARIABLE"
     runs-on: ubuntu-latest
@@ -25,12 +25,12 @@ jobs:
           echo $GITHUB_REPOSITORY_OWNER
           echo ${{ env.my_aim }}
         
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name : GET build artifacts
-  #       run: echo "Deploying"
-  #     - name: Publish variable name
-  #       run: echo "${{ needs.build.outputs.community}}"
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name : GET build artifacts
+        run: echo "Deploying"
+      - name: Publish variable name
+        run: echo "${{ env.testenv}}"
   

@@ -9,6 +9,7 @@ env:
   testenv: 'STAGE'
 jobs:
   build:
+    environment: Stage
     env:
       job-env-var: "JOB ENV VARIABLE"
     runs-on: ubuntu-latest
@@ -22,6 +23,7 @@ jobs:
           echo ${{ env.job-env-var }}
           echo $GITHUB_JOB
           echo $GITHUB_REPOSITORY_OWNER
+          cho ${{ env.my_aim }}
         
   # deploy:
   #   needs: build

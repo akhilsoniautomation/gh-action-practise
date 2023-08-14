@@ -27,6 +27,7 @@ jobs:
           echo ${{ env.testenv }}
           echo ${{ env.job-env-var }}
           echo $GITHUB_JOB
+          echo $GITHUB_REPOSITORY_OWNER
         
   # deploy:
   #   needs: build

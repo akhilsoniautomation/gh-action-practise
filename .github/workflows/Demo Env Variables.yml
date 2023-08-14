@@ -15,12 +15,6 @@ jobs:
     outputs:
       community: ${{steps.publish.outputs.mycommunity}}
     steps:
-      - name: download code
-        uses: actions/checkout@v3
-      - name: install dependencies
-        run: npm install
-      - name: run tests
-        run : npm run test
       - name: publish env name
         id: publish
         run: |

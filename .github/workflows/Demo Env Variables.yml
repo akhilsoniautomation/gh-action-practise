@@ -17,6 +17,8 @@ jobs:
       community: ${{steps.publish.outputs.mycommunity}}
     steps:
       - name: publish env name
+        env:
+          step_env_var: 'This is step env variable'
         id: publish
         run: |
           echo ${{ env.testenv }}
@@ -24,6 +26,7 @@ jobs:
           echo $GITHUB_JOB
           echo $GITHUB_REPOSITORY_OWNER
           echo ${{ env.my_aim }}
+          echo ${{env.step_env_var }}
         
   deploy:
     # needs: build

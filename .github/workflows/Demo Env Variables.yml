@@ -26,7 +26,7 @@ jobs:
         run: |
           echo ${{ env.testenv }}
           echo ${{ env.job-env-var }}
-          echo ${{ env.GITHUB_ACTION_PATH }}
+          echo ${{ GITHUB_ACTION_PATH }}
         
   # deploy:
   #   needs: build

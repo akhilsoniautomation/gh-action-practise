@@ -13,8 +13,6 @@ jobs:
     env:
       job-env-var: "JOB ENV VARIABLE"
     runs-on: ubuntu-latest
-    outputs:
-      community: ${{steps.publish.outputs.mycommunity}}
     steps:
       - name: publish env name
         env:

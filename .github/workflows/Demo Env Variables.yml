@@ -10,7 +10,7 @@ env:
 jobs:
   build:
     env:
-      job-env-var: 'JOB ENV VARIABLE'
+      job-env-var: "JOB ENV VARIABLE"
     runs-on: ubuntu-latest
     outputs:
       community: ${{steps.publish.outputs.mycommunity}}

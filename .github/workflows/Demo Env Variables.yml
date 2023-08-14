@@ -25,7 +25,7 @@ jobs:
         id: publish
         run: |
           echo ${{ env.testenv }}
-          echo ${{ job-env-var }}
+          echo ${{ env.job-env-var }}
         
   # deploy:
   #   needs: build

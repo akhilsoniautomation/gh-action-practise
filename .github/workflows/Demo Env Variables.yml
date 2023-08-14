@@ -1,0 +1,34 @@
+name: Env Variables Demo
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'feature/**' #test skip Ci
+env:
+  testenv: 'STAGE'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      community: ${{steps.publish.outputs.mycommunity}}
+    steps:
+      - name: download code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: run tests
+        run : npm run test
+      - name: publish env name
+        id: publish
+        run: echo ${{ env.testenv }}
+        
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name : GET build artifacts
+  #       run: echo "Deploying"
+  #     - name: Publish variable name
+  #       run: echo "${{ needs.build.outputs.community}}"
+  
